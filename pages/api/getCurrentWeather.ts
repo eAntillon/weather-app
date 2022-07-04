@@ -2,8 +2,8 @@ import axios from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
 export type dayWeather = {
     datetime: number;
-    max: {c: number; f:number};
-    min: {c: number; f:number};
+    max: { c: number; f: number };
+    min: { c: number; f: number };
     weather: string;
 };
 
@@ -46,11 +46,11 @@ export async function getWeather(params: WeatherParams) {
     const { latitude, longitude, city } = locationResponse.data;
 
     const weatherResponse = await axios.get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${process.env.API_KEY_OPEN_WEATHER}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&appid=${process.env.API_KEY_OPEN_WEATHER}`
     );
-    // console.log(
-    //     `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${process.env.API_KEY_OPEN_WEATHER}`
-    // );
+    console.log(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&appid=${process.env.API_KEY_OPEN_WEATHER}`
+    );
 
     // console.log(urlLocation);
 
@@ -63,12 +63,12 @@ export async function getWeather(params: WeatherParams) {
         return {
             datetime: d.dt,
             max: {
-                c: Math.round(d.temp.max - 273.15),
-                f: Math.round((d.temp.max - 273.15) * (5 / 9) + 32),
+                c: Math.round(((d.temp.max - 32) * 5) / 9),
+                f: d.temp.max,
             },
             min: {
-                c: Math.round(d.temp.min - 273.15),
-                f: Math.round((d.temp.min - 273.15) * (5 / 9) + 32),
+                c: Math.round(((d.temp.min - 32) * 5) / 9),
+                f: d.temp.min,
             },
             weather: d.weather[0].main,
         };
@@ -80,8 +80,8 @@ export async function getWeather(params: WeatherParams) {
             humidity: current.humidity,
             pressure: current.pressure,
             temp: {
-                c: Math.round(current.temp - 273.15),
-                f: Math.round((current.temp - 273.15) * (5 / 9) + 32),
+                c: Math.round(((current.temp - 32) * 5) / 9),
+                f: current.temp,
             },
             visibility: current.visibility,
             weather: current.weather[0].main,
