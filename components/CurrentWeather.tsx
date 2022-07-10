@@ -4,7 +4,7 @@ import WeatherDashboard from './Dashboard/WeatherDashboard';
 
 const CurrentWeather: React.FC<any> = () => {
     return (
-        <div>
+        <div className='flex flex-col lg:flex-row'>
             <SideBar />
             <WeatherDashboard />
         </div>

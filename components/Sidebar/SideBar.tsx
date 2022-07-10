@@ -7,10 +7,10 @@ import SearchBar from './SearchBar';
 const SideBar = () => {
     const { weatherData, scale, setScale } =
         useContext(WeatherDataContext) || {};
-
-    const [isOpen, toggleOpen] = useState(true);
+    const [isOpen, toggleOpen] = useState(false);
+    
     return (
-        <>
+        <div className='w-full lg:w-1/3'>
             <Menu open={isOpen} setOpen={toggleOpen} />
             <div className="w-full h-screen bg-darkBlue text-fontWhite">
                 <SearchBar setOpen={toggleOpen} />
@@ -49,7 +49,7 @@ const SideBar = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

@@ -8,7 +8,7 @@ const WeatherDashboard = () => {
         useContext(WeatherDataContext) || {};
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col lg:p-10 lg:p-12 xl:p-16 lg:w-2/3 lg:h-screen bg-veryDarkBlue lg:overflow-auto">
             <WeatherGrid daysWeather={weatherData?.daysWeather} scale={scale} />
             <WeatherHighlights weatherData={weatherData} />
         </div>

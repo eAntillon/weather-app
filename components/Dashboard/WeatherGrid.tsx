@@ -9,7 +9,7 @@ type props = {
 
 const WeatherGrid: React.FC<props> = ({ daysWeather = [], scale = 'c' }) => {
     return (
-        <div className="grid grid-cols-2 gap-x-6 gap-y-8 bg-veryDarkBlue px-14 pt-12 pb-6">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-8 bg-veryDarkBlue px-14 lg:px-6 pt-12 lg:pt-0 pb-6">
             {daysWeather.map((day) => (
                 <WeatherCard dailyData={day} scale={scale} key={day.datetime} />
             ))}

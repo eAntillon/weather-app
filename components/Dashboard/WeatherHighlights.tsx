@@ -9,10 +9,10 @@ type props = {
 const WeatherHighlights: React.FC<props> = ({ weatherData }) => {
     return (
         <div className="flex flex-col bg-veryDarkBlue py-8 px-6 text-fontWhite">
-            <h1 className="font-bold text-2xl mb-7">Today's Highlights</h1>
-            <div className="grid grid-cols-1 gap-y-8  justify-center items-center">
+            <h1 className="font-bold text-2xl mb-7 lg:mb-0">Today's Highlights</h1>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-8  justify-center items-center">
                 {/* Wind Status */}
-                <div className="flex flex-col justify-center items-center bg-darkBlue py-6 px-12">
+                <div className="flex flex-col justify-center items-center bg-darkBlue py-6 px-12 md:h-48">
                     <h3 className="font-medium">Wind Status</h3>
                     <p className="text-4xl">
                         <span className="text-6xl font-bold">
@@ -22,7 +22,7 @@ const WeatherHighlights: React.FC<props> = ({ weatherData }) => {
                     </p>
                 </div>
                 {/* Humidity */}
-                <div className="flex flex-col justify-center items-center bg-darkBlue py-6 px-12">
+                <div className="flex flex-col justify-center items-center bg-darkBlue py-6 px-12 md:h-48">
                     <h3 className="font-medium">Humidity</h3>
                     <p className="text-4xl mb-6">
                         <span className="text-6xl font-bold">
@@ -55,7 +55,7 @@ const WeatherHighlights: React.FC<props> = ({ weatherData }) => {
                     </div>
                 </div>
                 {/* Visibility */}
-                <div className="flex flex-col justify-center items-center bg-darkBlue py-6 px-12">
+                <div className="flex flex-col justify-center items-center bg-darkBlue py-6 px-12 md:h-40">
                     <h3 className="font-medium">Visibility</h3>
                     <p className="text-4xl">
                         <span className="text-6xl font-bold">
@@ -65,7 +65,7 @@ const WeatherHighlights: React.FC<props> = ({ weatherData }) => {
                     </p>
                 </div>
                 {/* Air Pressure */}
-                <div className="flex flex-col justify-center items-center bg-darkBlue py-6 px-12">
+                <div className="flex flex-col justify-center items-center bg-darkBlue py-6 px-12 md:h-40">
                     <h3 className="font-medium">Air Pressure</h3>
                     <p className="text-4xl">
                         <span className="text-6xl font-bold">
