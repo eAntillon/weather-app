@@ -13,6 +13,8 @@ export type WeatherContextType = {
     setScale: Function;
     city: string;
     setCity: Function;
+    isLoading: boolean;
+    setIsLoading: Function;
 };
 
 export const WeatherDataContext = createContext<WeatherContextType | null>(
@@ -23,19 +25,30 @@ const WeatherDataProvider: React.FC<Props> = ({ children, data }) => {
     const [weatherData, setWeatherData] = useState<WeatherData>(data);
     const [scale, setScale] = useState('c');
     const [city, setCity] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         if (city !== '') {
+            setIsLoading(true);
             axios(`/api/getWeatherByCity?city=${city}`).then((r) => {
                 if (r.data.city) {
                     setWeatherData(r.data);
                 }
+                setIsLoading(false);
             });
         }
     }, [city]);
 
     return (
         <WeatherDataContext.Provider
-            value={{ weatherData, scale, setScale, city, setCity }}
+            value={{
+                weatherData,
+                scale,
+                setScale,
+                city,
+                setCity,
+                isLoading,
+                setIsLoading,
+            }}
         >
             {children}
         </WeatherDataContext.Provider>

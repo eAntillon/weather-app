@@ -29,6 +29,7 @@ const Menu: React.FC<props> = ({ open, setOpen }) => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         ctx?.setCity(cityInput);
+        setOpen(false)
     };
 
     return (
@@ -45,7 +46,7 @@ const Menu: React.FC<props> = ({ open, setOpen }) => {
         >
             <div className="w-full flex justify-end">
                 <button
-                    onClick={() => setOpen((i: boolean) => !i)}
+                    onClick={() => setOpen(false)}
                     className="flex justify-center items-center text-white    p-0 "
                 >
                     <i className="bx bx-x text-3xl "></i>
