@@ -9,7 +9,7 @@ type props = {
 const WeatherHighlights: React.FC<props> = ({ weatherData }) => {
     return (
         <div className="flex flex-col bg-veryDarkBlue py-8 px-6 text-fontWhite">
-            <h1 className="font-bold text-2xl mb-7 lg:mb-0">Today's Highlights</h1>
+            <h1 className="font-bold text-2xl mb-7 lg:mb-0">Today&#39;s Highlights</h1>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-8  justify-center items-center">
                 {/* Wind Status */}
                 <div className="flex flex-col justify-center items-center bg-darkBlue py-6 px-12 md:h-48">

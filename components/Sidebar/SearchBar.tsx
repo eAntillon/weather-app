@@ -12,9 +12,9 @@ const SearchBar: React.FC<props> = ({ setOpen }) => {
             >
                 Search for places
             </button>
-            <button className="bg-grey-400 rounded-full p-2 text-2xl h-fit text-center flex items-center justify-center drop-shadow-button">
+            {/* <button className="bg-grey-400 rounded-full p-2 text-2xl h-fit text-center flex items-center justify-center drop-shadow-button">
                 <i className="bx bx-current-location"></i>
-            </button>
+            </button> */}
         </div>
     );
 };

@@ -1,7 +1,7 @@
+import Image from 'next/image';
 import React from 'react';
 import { dayWeather } from '../../pages/api/getCurrentWeather';
 import { getWeatherImage } from '../../utils/utils';
-
 interface props {
     dailyData: dayWeather;
     scale: string;
@@ -18,18 +18,18 @@ const WeatherCard: React.FC<props> = ({ dailyData: day, scale }) => {
                 })}
             </h2>
             <div className="flex justify-center relative w-full mb-8">
-                <img
+                <Image
                     src={`/${getWeatherImage(day.weather)}.png`}
                     alt={day.weather}
                     className="w-10/12"
+                    width={600}
+                        height={600}
                 />
             </div>
             <div className="flex w-full justify-between text-sm">
                 <p>
                     {scale === 'f' ? day.max.f : day.max.c}
-                    <span >
-                        °{scale.toUpperCase()}
-                    </span>
+                    <span>°{scale.toUpperCase()}</span>
                 </p>
                 <p>
                     {scale === 'f' ? day.min.f : day.min.c}{' '}
