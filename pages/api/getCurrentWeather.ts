@@ -42,7 +42,7 @@ export async function getWeather(params: WeatherParams) {
     }
     // Get latitude longitude
     let urlLocation = `https://api.ipgeolocation.io/ipgeo?apiKey=${
-        process.env.API_KEY_IPGEOLOCATION + ipUrl
+        process.env.API_KEY_IPGEOLOCATION
     }`;
     // location request
     const locationResponse = await axios.get(urlLocation);
